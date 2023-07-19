@@ -1,0 +1,8 @@
+name: vikrant_assembly
+channels:
+ - bioconda
+dependencies:
+ - canu=2.2
+ - ragtag=2.1.0
+ - kmc=3.2.1
+ - genomescope2=2.0
