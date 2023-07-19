@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#SBATCH -J smudgeplot
+#SBATCH -J kmc
 #SBATCH -p short
 #SBATCH -c 32
 #SBATCH --mem=64G
 #SBATCH --export=ALL
-#SBATCH -o slurm/smudgeplot.%j.out
-#SBATCH -e slurm/smudgeplot.%j.err
+#SBATCH -o slurm/kmc.%j.out
+#SBATCH -e slurm/kmc.%j.err
 
 source activate vikrant_assembly
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J ragtag
+#SBATCH -J canu
 #SBATCH -p short
 #SBATCH -c 1
 #SBATCH --mem=4G
