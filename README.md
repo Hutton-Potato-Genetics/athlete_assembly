@@ -25,13 +25,13 @@ This will create a conda environment called `vikrant_assembly` that can be activ
 conda activate vikrant_assembly
 ```
 
-These environments are automatically activated in the job scripts, so no need to activate them yourself.
+These environments are automatically activated in the job scripts when necessary, so no need to activate them yourself.
 
 ## Job scripts
 
 All job scripts are contained in the `scripts/` directory.
 
-To submit a job, run the command `sbatch scripts/run_canu.sh` and it will be submitted to the cluster.
+To submit a job, run the command `sbatch scripts/run_{job}.sh` and it will be submitted to the cluster.
 
 The stdout and stderr output of each script will be written to files in the `slurm/` directory to keep everything tidy.
 
@@ -39,16 +39,22 @@ The stdout and stderr output of each script will be written to files in the `slu
 
 ### Basecalling
 
-**NEED TO FIX, CURRENTLY BROKEN**
+`run_dorado.sh`
 
 The first task is to basecall the raw nanopore data into `fastq` reads.
 You'll be using dorado for this, previously we used guppy but that is being phased out in favour of dorado which makes use of the more efficient `POD5` raw data format.
-To carry out basecalling, submit `sbatch scripts/run_guppy.sh`.
-This will take the raw read data stored in the project folder, basecall it, and output to the directory `fastq/`.
+To carry out basecalling, submit `sbatch scripts/run_dorado.sh`.
+This will take the raw read data stored in the project folder, basecall it, and output the basecalled reads to `reads.fastq.gz`
 
-### Zygosity assessment
+### Assembly
 
-The next step is to use the raw data to assess the genome zygosity via genomescope2.
-Not sure how well this will work with ONT V14 reads, especially with the lower QC you were experiencing.
-KMC is used to count *k*-mers which are then input into genomescope2 to produce the profile plots.
-To carry this out, submit `sbatch scripts/run_kmc.sh`.
+`run_flye.sh`
+
+Assembly is conducted with flye which achieved the best results from testing.
+
+### Scaffolding
+
+`run_ragtag.sh`
+
+Scaffolding is conducted with ragtag.
+You'll need to download `DM_1-3_516_R44_potato_genome_assembly.v6.1.fa.gz` and place it in the base directory before starting.

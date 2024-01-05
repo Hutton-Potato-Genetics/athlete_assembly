@@ -10,4 +10,4 @@
 
 source activate vikrant_assembly
 
-ragtag.py scaffold -t 4 -o ragtag DM_1-3_516_R44_potato_genome_assembly.v6.1.fa.gz canurun/dihaploid.contigs.fasta
+ragtag.py scaffold -t 4 -o ragtag DM_1-3_516_R44_potato_genome_assembly.v6.1.fa.gz flye/assembly.fasta

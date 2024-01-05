@@ -19,4 +19,4 @@ cp -r $read_path/athlete $TMPDIR
 
 $dorado_path basecaller --emit-fastq -r $model $TMPDIR > $TMPDIR/reads.fastq
 
-pigz -c reads.fastq > reads.fastq.gz
+pigz -c $TMPDIR/reads.fastq > reads.fastq.gz
