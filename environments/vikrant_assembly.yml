@@ -1,8 +1,10 @@
 name: vikrant_assembly
 channels:
+ - conda-forge
  - bioconda
 dependencies:
- - flye=2.9.3
- - ragtag=2.1.0
- - kmc=3.2.1
- - genomescope2=2.0
+ - samtools
+ - cramino
+ - kmc=3.2.4
+ - genomescope2=2.0.1
+ - hifiasm=0.25.0
