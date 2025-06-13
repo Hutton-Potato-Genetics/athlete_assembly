@@ -1,2 +1,5 @@
 results/*
 logs/*
+work/
+busco*
+.nextflow*

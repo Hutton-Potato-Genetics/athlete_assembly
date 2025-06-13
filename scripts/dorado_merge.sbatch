@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#SBATCH -J dorado-merge
 #SBATCH -p short
 #SBATCH -c 8
 #SBATCH --mem 8G

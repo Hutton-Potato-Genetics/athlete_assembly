@@ -8,3 +8,5 @@ dependencies:
  - kmc=3.2.4
  - genomescope2=2.0.1
  - hifiasm=0.25.0
+ - ragtag=2.1.0
+ - busco=5.8.3
