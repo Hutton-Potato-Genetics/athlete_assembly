@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -p medium
+#SBATCH -p short
 #SBATCH -c 32
 #SBATCH --mem=64gb
 #SBATCH --export=all
@@ -13,5 +13,5 @@ source activate resistify
 
 resistify nlr \
   --coconat \
-  -o results/resistify/nlr \
-  results/annevo/phased_primary.gene.pep.fa
+  -o results/resistify/nlr_helixer \
+  results/helixer/helixer.pep.fa

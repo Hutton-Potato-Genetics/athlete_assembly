@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#SBATCH -p medium
-#SBATCH -c 32
-#SBATCH --mem=64G
+#SBATCH -p long
+#SBATCH -c 64
+#SBATCH --mem=128G
 #SBATCH --export=ALL
 #SBATCH -o logs/hite.%j.out
 #SBATCH -e logs/hite.%j.out
@@ -13,5 +13,5 @@ OUTDIR=$(realpath results/hite)
 singularity exec -B /mnt/:/mnt/ $APPS/HiTE/HiTE.sif python /HiTE/main.py \
   --genome $GENOME \
   --annotate 1 \
-  --thread 32 \
+  --thread 64 \
   --out_dir $OUTDIR

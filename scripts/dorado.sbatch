@@ -5,7 +5,7 @@
 #SBATCH -c 8
 #SBATCH --mem 32G
 #SBATCH --gpus-per-node=2
-#SBATCH --array=0-4 # 5 tasks (0, 1, 2, 3, 4)
+#SBATCH --array=0-5 # 5 tasks (0, 1, 2, 3, 4)
 #SBATCH -o logs/dorado_array.%A_%a.out # %A for job ID, %a for array task ID
 #SBATCH -e logs/dorado_array.%A_%a.err
 
