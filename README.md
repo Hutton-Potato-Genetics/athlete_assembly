@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1025679742.svg)](https://doi.org/10.5281/zenodo.16418964)
+
 # Dihaploid analysis
 
 This repository contains all the code used to carry out the dihaploid genome assembly and analysis.
