@@ -7,7 +7,7 @@ This repository contains all the code used to carry out the dihaploid genome ass
 To download this repository, simply run the code:
 
 ```
-git clone https://github.com/SwiftSeal/vikrant_assembly.git
+git clone https://github.com/Hutton-Potato-Genetics/athlete_assembly.git
 ```
 
 This will download the code to your current repository, ideally keep it in your scratch directory.
