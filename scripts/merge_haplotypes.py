@@ -39,13 +39,13 @@ def merge_haplotypes(hap1_path, hap2_path, output_path):
     for chrom_header in common_chromosomes:
         base_chrom_name = chrom_header.split("_RagTag")[0]
 
-        seq_a = hap1_sequences[chrom_header]
-        seq_b = hap2_sequences[chrom_header]
+        seq_1 = hap1_sequences[chrom_header]
+        seq_2 = hap2_sequences[chrom_header]
 
-        merged_output_lines.append(f">{base_chrom_name}_A")
-        merged_output_lines.append(seq_a)
-        merged_output_lines.append(f">{base_chrom_name}_B")
-        merged_output_lines.append(seq_b)
+        merged_output_lines.append(f">{base_chrom_name}_1")
+        merged_output_lines.append(seq_1)
+        merged_output_lines.append(f">{base_chrom_name}_2")
+        merged_output_lines.append(seq_2)
 
     with open(output_path, "w") as f_out:
         for line in merged_output_lines:
@@ -54,7 +54,7 @@ def merge_haplotypes(hap1_path, hap2_path, output_path):
 # Hardcoded file paths
 HAP1_FILE = "results/ragtag/hap1/ragtag.scaffold.fasta"
 HAP2_FILE = "results/ragtag/hap2/ragtag.scaffold.fasta"
-OUTPUT_FILE = "results/ragtag/phased_primary.fa"
+OUTPUT_FILE = "results/assembly/phased_primary.fa"
 
 # Call the function directly
 merge_haplotypes(HAP1_FILE, HAP2_FILE, OUTPUT_FILE)
