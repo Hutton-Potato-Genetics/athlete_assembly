@@ -1,23 +1,22 @@
-#!/bin/bash
+#!/bin/env -S pixi exec -s gci==1.0 -s minimap2==2.30 -s samtools==1.23 -s winnowmap=2.03 -s meryl==1.4.1 -- bash
 
 #SBATCH -p himem
 #SBATCH -c 32
-#SBATCH --mem=84gb
-#SBATCH --export=ALL
+#SBATCH --mem 84gb
+#SBATCH --export ALL
 #SBATCH -o logs/gci.%j.out
 #SBATCH -e logs/gci.%j.out
 
-ASSEMBLY=results/ragtag/phased_primary.fa
-READS=results/dorado/merged.fq.gz
-HAPLOTYPE=B
+ASSEMBLY=results/assembly/phased_primary.fa
+READS=results/dorado/reads.fq.gz
 
 seqkit grep -r -p "_$HAPLOTYPE" $ASSEMBLY > $TMPDIR/$HAPLOTYPE.fa
 
 ASSEMBLY=$TMPDIR/$HAPLOTYPE.fa
 
-source activate gci
+OUT_DIR=results/gci/hap$HAPLOTYPE
 
-mkdir -p results/gci
+mkdir -p $OUT_DIR
 
 minimap2 -t $SLURM_CPUS_PER_TASK -ax map-ont $ASSEMBLY $READS | \
   samtools sort -@ $SLURM_CPUS_PER_TASK -o $TMPDIR/ont.minimap2.sorted.bam
